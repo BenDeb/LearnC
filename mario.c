@@ -1,3 +1,13 @@
+/* Output :
+
+entrez une taille pour la pyramide : 6
+     ##
+    ###
+   ####
+  #####
+ ######
+####### */
+
 #include <stdio.h>
 #include <cs50.h>
 void pyramid(void);
@@ -17,6 +27,8 @@ void pyramid(void)
         printf("entrez une taille pour la pyramide : ");
         x = get_int();
     }
+    /* la taille de la pyramide ne doit pas excéder 23 ou être
+    inférieure à 0 */
     while (x > 23 || x < 0);
     /*première boucle, on boucle n fois*/
     for (int j = 0; j < x; j++)
