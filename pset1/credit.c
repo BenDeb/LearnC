@@ -35,19 +35,21 @@ int main(void)
         printf("%i\n", sum2);*/
     }
     int total = sum1 + sum2;
-    int cardtype = floor(card/100000000000000);
+    int cardtypeAM = floor(card/10000000000000);
+    int cardtypeMC = floor(card/100000000000000);
+    int cardtypeVS = floor(card/1000000000000000);
     
     if (total % 10 == 0)
     {
-        if (cardtype == 37 || cardtype == 34)
+        if (cardtypeAM == 37 || cardtypeAM == 34)
         {
             printf("AMEX\n");
         }
-        else if (cardtype == 51 || cardtype == 52 || cardtype == 53 || cardtype ==  54 || cardtype == 55)
+        else if (cardtypeMC == 51 || cardtypeMC == 52 || cardtypeMC == 53 || cardtypeMC ==  54 || cardtypeMC == 55)
         {
             printf("MASTERCARD\n");
         }
-        else if (floor(cardtype/10) == 4)
+        else if (cardtypeVS == 4)
         {
             printf("VISA\n");
         }
