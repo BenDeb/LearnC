@@ -4,15 +4,14 @@
 
 int main(void)
 {
+    int sum1 = 0;
+    int sum2 = 0;
     int digit1 = 0; /* numéros en partant de l'avant dernier, à multiplier par 2*/
     int digit2 = 0; /* numéros en partant du dernier, à ne pas multiplier par 2*/
-    int sum1 = 0; /* somme numéros digit1 */
-    int sum2 = 0; /* somme numéros digit2 */
-
+    
     printf("Numéro carte : ");
     long long card = get_long_long() ;
-    printf("%lld\n", card); 
-
+    
     for (long long newcard = card; newcard > 0; newcard /= 10)
     {
         digit2 = newcard % 10;
@@ -29,16 +28,33 @@ int main(void)
         {
             sum1 += digit1;
         }
-        printf("%lld\n", newcard);
+        /*printf("%lld\n", newcard);
         printf("%i\n", digit1);
         printf("%i\n", digit2);
         printf("%i\n", sum1);
-        printf("%i\n", sum2);
+        printf("%i\n", sum2);*/
     }
     int total = sum1 + sum2;
+    int cardtype = floor(card/100000000000000);
+    
     if (total % 10 == 0)
     {
-        printf("Cette carte est valide!");
+        if (cardtype == 37 || cardtype == 34)
+        {
+            printf("AMEX\n");
+        }
+        else if (cardtype == 51 || cardtype == 52 || cardtype == 53 || cardtype ==  54 || cardtype == 55)
+        {
+            printf("MASTERCARD\n");
+        }
+        else if (floor(cardtype/10) == 4)
+        {
+            printf("VISA\n");
+        }
     }
-    else { printf("Carte invalide!"); }
+    else 
+    { 
+        printf("INVALID\n"); 
+    }
+    return 0;
 }
