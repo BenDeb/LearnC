@@ -6,20 +6,18 @@
 int main(void)
 {
     string nom = get_string();
-
-    for(int i = 0, n = strlen(nom); i < n - 1; i++)
+    //boucle sur les éléments de la chaine
+    for(int i = 0, n = strlen(nom); i < n; i++)
     {
+        //on affiche le premier élément de la chaine
         if(i == 0)
         {
         printf("%c", toupper(nom[0]));
         }
+        //quand on arrive à un espace (' '), on affiche l'élément qui suit (donc la 1ère lettre du mot suivant)
         if(nom[i] == ' ')
         {
             printf("%c", toupper(nom[i+1]));
-        }
-        if(i == n)
-        {
-            break;
         }
     }
     printf("\n");
