@@ -6,30 +6,31 @@
 
 int main(void)
 {
-    string nom = get_string();
-    //on boucle sur les 
-    for(int i = 0, n = strlen(nom); i < n; i++)
+  string nom = get_string();
+  //on boucle sur les éléments de la chaine nom, jusqu'à la fin
+  while(nom[i] != '\0')
+  {
+    //si l'élement est un espace, on incrémente
+    if(nom[i] == ' ')
     {
-        while(nom[i] != '\0')
-        {
-            if(nom[i] == ' ')
-            {
-                i++;
-            }
-            else if(nom[i] != ' ')
-            {
-                if(nom[i - 1] == ' ' || nom[i - 1] == '\0')
-                {
-                    printf("%c", toupper(nom[i]));
-                    i++;
-                }
-                else
-                {
-                    i++;
-                }
-            }
-        }
+      i++;
     }
-    printf("\n");
+    //sinon si l'élément n'est pas un espace, deux choix :
+    else if(nom[i] != ' ')
+    {
+      //si l'élément précédent est un espace, ou qu'il est NUL(le début)
+      //on affiche l'élément actuel
+      if(nom[i - 1] == ' ' || nom[i - 1] == '\0')
+      {
+        printf("%c", toupper(nom[i]));
+        i++;
+      }
+      //sinon, on continue d'incrémenter
+      else
+      {
+        i++;
+      }
+    }
+  }
+  printf("\n");
 }
-
